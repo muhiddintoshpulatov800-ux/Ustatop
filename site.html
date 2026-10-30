@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>UstaTop – ustalar marketplace’i</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:dark;--ink:#f3ecda;--bg:#14120e;--card:#1f1c15;--line:#3a3427;--mut:#a79f8b;--acc:#d4a94a;--on-acc:#14120e;--ok:#7fd1a0;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+
+
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.55 Manrope,system-ui,sans-serif}
+main{max-width:960px;margin:0 auto;padding:20px 16px 48px}
+h1,h2,h3{font-family:"Bricolage Grotesque",system-ui,sans-serif;line-height:1.1;margin:0}
+h1{font-size:clamp(2rem,8vw,3rem);font-weight:800;letter-spacing:-.02em;max-width:14ch}
+.lead{color:var(--mut);max-width:46ch;margin:12px 0 20px}
+.brand{font:800 1.1rem "Bricolage Grotesque",system-ui,sans-serif;display:flex;align-items:center;gap:8px;margin-bottom:28px}
+.brand i{width:22px;height:22px;background:var(--acc);border-radius:6px;display:inline-block}
+.chips{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;margin:0 -16px 16px;padding-inline:16px}
+.chip{flex:none;border:1.5px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:8px 14px;font:600 .9rem Manrope,system-ui,sans-serif;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--acc);border-color:var(--acc);color:var(--on-acc)}
+:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+.list{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(270px,1fr))}
+.m{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:12px}.top{display:flex;gap:12px;align-items:center}.top .av{flex:none}.rt{margin-left:auto;background:var(--acc);color:var(--on-acc);font-weight:700;font-size:.85rem;border-radius:8px;padding:3px 8px}.bot{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--line);padding-top:12px;margin-top:auto}
+.av{width:48px;height:48px;border-radius:50%;background:var(--ink);color:var(--bg);display:grid;place-items:center;font:800 1.1rem "Bricolage Grotesque",sans-serif}
+.m h3{font-size:1.05rem}.m p{margin:2px 0 0;color:var(--mut);font-size:.88rem}
+.pr{font-weight:700}.pr small{color:var(--mut);font-weight:400}
+.btn{background:var(--ink);color:var(--bg);border:0;border-radius:10px;padding:10px 14px;font:700 .9rem Manrope,sans-serif;cursor:pointer}
+.btn.y{background:var(--acc);color:var(--on-acc);width:100%;padding:13px;font-size:1rem}
+h2{font-size:1.4rem;margin:36px 0 12px}
+dialog{border:0;border-radius:16px;padding:20px;width:min(440px,calc(100% - 24px));background:var(--card);color:var(--ink)}
+dialog::backdrop{background:rgba(0,0,0,.7)}
+label{display:block;font-weight:600;font-size:.9rem;margin:12px 0 4px}
+input,select,textarea{width:100%;font:inherit;padding:10px;border:1.5px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink)}
+.sum{margin:16px 0;border-top:1px solid var(--line)}
+.sum div{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--line)}
+.sum .t{font-weight:700}.fee{color:var(--mut)}
+.ord{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin-bottom:10px}
+.ord b{display:block}.st{color:var(--ok);font-weight:600;font-size:.88rem}
+.empty{color:var(--mut)}.on{color:var(--ok);font-weight:600}.off{color:var(--mut)}.reg{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px}.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.x{float:right;background:none;border:0;color:var(--mut);font-size:1.4rem;cursor:pointer}
+.note{font-size:.8rem;color:var(--mut);margin-top:28px}
+.chat{height:260px;overflow:auto;margin:12px 0;display:flex;flex-direction:column;gap:6px}.b{max-width:80%;padding:8px 12px;border-radius:12px;background:var(--bg);border:1px solid var(--line)}.b.me{align-self:flex-end;background:var(--acc);color:var(--on-acc);border-color:var(--acc)}.row2{display:flex;gap:8px}.row2 .btn{margin:0}.ord .btn{margin:8px 6px 0 0}.mcb{margin:12px 0;font-size:.9rem}.mcb>div{padding:8px 0;border-bottom:1px solid var(--line)}</style>
+</head>
+<body>
+<main>
+<div class="brand"><i></i>UstaTop · Zarafshon</div>
+<h1>Usta kerakmi? Bugun toping.</h1>
+<p class="lead">Zarafshon shahrida santexnik, elektrik, konditsioner ustasi yoki tozalash xizmati. Baho va sharhlar bilan, toʻlov esa ish tugagach.</p><p><a class="btn" href="https://www.google.com/maps/search/Zarafshon+Navoiy+viloyati" target="_blank" rel="noopener" style="display:inline-block;text-decoration:none">Zarafshon xaritasini ochish</a></p>
+
+<div class="chips" id="chips" role="group" aria-label="Xizmat turi"></div>
+<div class="list" id="list"></div>
+
+<h2>Usta boʻlib qoʻshiling</h2>
+<div class="reg">
+<label for="rn">Ism</label><input id="rn" autocomplete="name">
+<label for="rp">Telefon raqami</label><input id="rp" type="tel" placeholder="+998 90 123 45 67"><label for="rpin">PIN-kod (qayta kirish uchun, 4–8 raqam)</label><input id="rpin" type="password" inputmode="numeric" maxlength="8" autocomplete="new-password">
+<div class="row"><div><label for="rc">Xizmat turi</label><select id="rc"></select></div><div><label for="rz">Hudud</label><select id="rz"><option>Markaz</option><option>Shimol</option><option>Janub</option><option>Sharq</option><option>Gʻarb</option></select></div></div>
+<label>Xizmatlaringiz va narxlari</label><div id="svs"></div>
+<div class="row"><button class="btn" id="addsv" type="button">+ Xizmat qoʻshish</button><button class="btn" id="delsv" type="button">Oxirgisini oʻchirish</button></div>
+<div class="mcb" id="mc"></div>
+<div class="row"><div><label for="rf">Ish boshlanishi</label><input id="rf" type="time" value="08:00"></div><div><label for="rt">Ish tugashi</label><input id="rt" type="time" value="18:00"></div></div>
+<button class="btn y" id="rg" style="margin-top:16px">Roʻyxatdan oʻtish</button>
+<p class="empty" id="rm"></p>
+</div>
+<h2>Buyurtmalarim</h2>
+<div id="orders"><p class="empty">Hozircha buyurtma yoʻq. Usta tanlab, birinchi buyurtmani bering.</p></div>
+<div id="cab" hidden><h2>Usta kabineti</h2><div id="cabl"></div></div>
+
+
+</main>
+
+<dialog id="dlg">
+<button class="x" id="close" aria-label="Yopish">×</button>
+<h3 id="dt"></h3>
+<p id="ds" class="empty" style="margin:4px 0 0"></p>
+<label for="hrs">Xizmat</label><select id="hrs"></select>
+<label for="cph">Telefon raqamingiz</label><input id="cph" type="tel" placeholder="+998 90 123 45 67" autocomplete="tel">
+<label for="adr">Manzil</label>
+<input id="adr" placeholder="Koʻcha, uy, xonadon">
+<label for="pb">Muammo tavsifi</label>
+<textarea id="pb" rows="3" placeholder="Masalan: oshxonadagi kran oqyapti"></textarea>
+<div class="sum">
+<div><span>Xizmat narxi</span><span id="s1"></span></div>
+
+
+<div class="t"><span>Siz toʻlaysiz</span><span id="s4"></span></div>
+</div>
+<p class="off" id="er"></p><button class="btn y" id="go">Buyurtma berish</button>
+</dialog>
+
+<dialog id="chd"><button class="x" id="chx" aria-label="Yopish">×</button><h3 id="cht">Suhbat</h3><div id="chm" class="chat"></div><div class="row2"><input id="chi" placeholder="Xabar yozing" maxlength="500"><button class="btn" id="chs">Yuborish</button></div></dialog>
+<script>
+var RATE=0.12,cur="Hammasi",sel=null,M=[],cats=["Hammasi"],orders=[],tok=null,beatOn=false;
+try{tok=localStorage.getItem("ut")}catch(e){}
+function el(id){return document.getElementById(id)}
+function f(n){return Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g," ")+" soʻm"}
+function esc(s){return String(s).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
+function api(p,o){o=o||{};o.headers={"Content-Type":"application/json"};if(tok)o.headers.Authorization="Bearer "+tok;
+  return fetch(p,o).then(function(r){return r.json().then(function(j){if(!r.ok)throw new Error(j.error||"Xatolik");return j})})}
+function post(p,b){return api(p,{method:"POST",body:JSON.stringify(b)})}
+function load(){api("/api/masters").then(function(d){
+  RATE=d.rate||RATE;M=d.masters;mc();cats=["Hammasi"].concat(d.cats);
+  if(!el("rc").options.length)el("rc").innerHTML=d.cats.map(function(c){return "<option>"+c+"</option>"}).join("");
+  chips();list();
+}).catch(function(){el("list").innerHTML='<p class="empty">Ustalar yuklanmadi. Sahifani yangilang.</p>'})}
+function chips(){
+  el("chips").innerHTML="";
+  cats.forEach(function(c){var b=document.createElement("button");b.className="chip";b.textContent=c;b.setAttribute("aria-pressed",c===cur);
+    b.onclick=function(){cur=c;chips();list()};el("chips").appendChild(b)});
+}
+function list(){
+  var h="";
+  M.forEach(function(m){
+    if(cur!=="Hammasi"&&m.cat!==cur)return;
+    h+='<div class="m"><div class="top"><div class="av">'+esc(m.name.charAt(0))+'</div><div><h3>'+esc(m.name)+'</h3><p>'+esc(m.cat)+'</p></div><span class="rt">'+(m.jobs?'★ '+m.rating.toFixed(1):'Yangi')+'</span></div><p>'+esc(m.zone)+' hududi · '+m.jobs+' ta bajarilgan ish</p><p class="'+(m.online?'on':'off')+'">'+(m.online?'● Onlayn':'○ Oflayn')+' · ish vaqti '+m.from+'–'+m.to+'</p><p>'+m.services.map(function(v){return esc(v.title)+' — '+f(v.price)}).join('<br>')+'</p><div class="bot"><div class="pr">'+f(m.price)+' <small>dan</small></div><button class="btn" data-id="'+m.id+'">Tanlash</button></div></div>';
+  });
+  el("list").innerHTML=h||'<p class="empty">Hozircha ustalar yoʻq. Birinchi boʻlib qoʻshiling.</p>';
+  Array.prototype.forEach.call(el("list").querySelectorAll("button"),function(b){b.onclick=function(){open(b.dataset.id)}});
+}
+function calc(){var v=sel.services[+el("hrs").value];el("s1").textContent=f(v.price);el("s4").textContent=f(v.price)}
+function open(id){
+  sel=M.filter(function(m){return m.id===id})[0];if(!sel)return;
+  el("dt").textContent=sel.name;el("ds").textContent=sel.cat+" · "+sel.zone;el("er").textContent="";
+  el("adr").value="";el("pb").value="";el("hrs").innerHTML=sel.services.map(function(v,i){return '<option value="'+i+'">'+esc(v.title)+" — "+f(v.price)+"</option>"}).join("");calc();el("dlg").showModal();
+}
+el("hrs").onchange=calc;
+el("close").onclick=function(){el("dlg").close()};
+el("go").onclick=function(){
+  post("/api/orders",{masterId:sel.id,service:+el("hrs").value,address:el("adr").value,problem:el("pb").value,phone:el("cph").value})
+  .then(function(r){orders.unshift(r);saveOrders();el("dlg").close();renderOrders()})
+  .catch(function(e){el("er").textContent=e.message});
+};
+var ST={yangi:"Usta tasdiqlashi kutilmoqda",qabul:"Usta qabul qildi",bajarildi:"Bajarildi",bekor:"Bekor qilindi"},chat={id:null,ct:null,timer:null};
+function saveOrders(){try{localStorage.setItem("uo",JSON.stringify(orders))}catch(e){}}
+function renderOrders(){
+  var h="";
+  orders.forEach(function(r,i){var o=r.order;
+    h+='<div class="ord"><b>'+esc(r.masterName)+' · '+esc(r.masterPhone)+'</b>'+esc(o.service)+' · '+esc(o.address)+' · '+f(o.total)+'<div class="st">'+(ST[o.status]||o.status)+'</div><button class="btn" data-c="'+i+'">Suhbat</button></div>';
+  });
+  el("orders").innerHTML=h||'<p class="empty">Hozircha buyurtma yoʻq.</p>';
+  Array.prototype.forEach.call(el("orders").querySelectorAll("button"),function(b){b.onclick=function(){var r=orders[+b.dataset.c];openChat(r.order.id,r.ctoken,r.masterName)}});
+}
+function refreshOrders(){orders.forEach(function(r){api("/api/chat?orderId="+r.order.id+"&ctoken="+r.ctoken).then(function(d){if(d.status!==r.order.status){r.order.status=d.status;saveOrders();renderOrders()}}).catch(function(){})})}
+function openChat(id,ct,title){chat.id=id;chat.ct=ct;el("cht").textContent=title;el("chm").innerHTML="";el("chd").showModal();pull();clearInterval(chat.timer);chat.timer=setInterval(pull,4000)}
+function pull(){if(!chat.id)return;api("/api/chat?orderId="+chat.id+(chat.ct?"&ctoken="+chat.ct:"")).then(function(d){
+  var me=chat.ct?"mijoz":"usta";
+  el("chm").innerHTML=d.messages.map(function(m){return '<div class="b'+(m.from===me?' me':'')+'">'+esc(m.text)+'</div>'}).join("")||'<p class="empty">Birinchi xabarni yozing.</p>';
+  el("chm").scrollTop=1e6}).catch(function(){})}
+el("chs").onclick=function(){var t=el("chi").value.trim();if(!t)return;el("chi").value="";post("/api/chat",{orderId:chat.id,ctoken:chat.ct,text:t}).then(pull).catch(function(e){alert(e.message)})};
+el("chx").onclick=function(){el("chd").close()};
+el("chd").onclose=function(){clearInterval(chat.timer);chat.id=null};
+function cab(){if(!tok)return;api("/api/my-orders").then(function(os){
+  el("cab").hidden=false;
+  el("cabl").innerHTML=os.length?os.slice().reverse().map(function(o){
+    var b="";
+    if(o.status==="yangi")b+='<button class="btn" data-s="qabul" data-o="'+o.id+'">Qabul qilish</button>';
+    if(o.status==="qabul")b+='<button class="btn" data-s="bajarildi" data-o="'+o.id+'">Bajarildi</button>';
+    if(o.status==="yangi"||o.status==="qabul")b+='<button class="btn" data-s="bekor" data-o="'+o.id+'">Bekor</button>';
+    return '<div class="ord"><b>'+esc(o.service)+' · '+f(o.total)+'</b>'+esc(o.address)+'<br>Mijoz: +'+esc(o.customerPhone)+'<br>Komissiya ('+Math.round(RATE*100)+'%): '+f(o.fee)+' · siz olasiz: <b>'+f(o.payout)+'</b>'+(o.problem?'<br>'+esc(o.problem):'')+'<div class="st">'+(ST[o.status]||o.status)+'</div>'+b+'<button class="btn" data-ch="'+o.id+'">Suhbat</button></div>';
+  }).join(""):'<p class="empty">Hozircha buyurtma yoʻq.</p>';
+  Array.prototype.forEach.call(el("cabl").querySelectorAll("button"),function(b){b.onclick=function(){
+    if(b.dataset.ch){openChat(b.dataset.ch,null,"Mijoz bilan suhbat");return}
+    post("/api/orders/status",{id:b.dataset.o,status:b.dataset.s}).then(cab).catch(function(e){alert(e.message)})}});
+}).catch(function(){})}
+function beat(){if(tok)post("/api/beat",{}).catch(function(){})}
+function startBeat(){if(tok&&!beatOn){beatOn=true;beat();setInterval(beat,60000)}}
+el("rg").onclick=function(){
+  post("/api/register",{name:el("rn").value,phone:el("rp").value,pin:el("rpin").value,cat:el("rc").value,zone:el("rz").value,services:getSvs(),from:el("rf").value,to:el("rt").value})
+  .then(function(r){tok=r.token;try{localStorage.setItem("ut",tok)}catch(e){}
+    el("rm").textContent=r.approved?"Siz roʻyxatdasiz. Sahifa ochiq turganda onlayn boʻlasiz.":"Roʻyxatdan oʻtdingiz. Admin tasdiqlagach, ustalar roʻyxatida chiqasiz.";
+    startBeat();load();cab()})
+  .catch(function(e){el("rm").textContent=e.message});
+};
+function svRow(){var d=document.createElement("div");d.className="row";d.innerHTML='<input class="st1" placeholder="Xizmat nomi (masalan, Wi-Fi sozlash)" maxlength="60"><input class="sp1" type="number" min="5000" step="1000" placeholder="Narxi, soʻm">';d.oninput=mc;el("svs").appendChild(d)}
+function getSvs(){return Array.prototype.map.call(el("svs").children,function(d){return {title:d.querySelector(".st1").value.trim(),price:+d.querySelector(".sp1").value}})}
+function mc(){el("mc").innerHTML=getSvs().filter(function(v){return v.price>0}).map(function(v){var c=Math.round(v.price*RATE);return '<div>'+esc(v.title||"Xizmat")+': mijoz toʻlaydi '+f(v.price)+'<br><span class="fee">Platforma komissiyasi ('+Math.round(RATE*100)+'%): '+f(c)+' · siz olasiz: <b>'+f(v.price-c)+'</b></span></div>'}).join("")||'<p class="empty">Xizmat narxini yozing: komissiya va sizga qoladigan summa shu yerda koʻrinadi.</p>'}
+el("addsv").onclick=function(){if(el("svs").children.length<10){svRow();mc()}};
+el("delsv").onclick=function(){if(el("svs").children.length>1){el("svs").removeChild(el("svs").lastChild);mc()}};
+svRow();mc();
+try{orders=JSON.parse(localStorage.getItem("uo")||"[]")}catch(e){orders=[]}
+renderOrders();load();startBeat();cab();refreshOrders();
+setInterval(load,60000);setInterval(cab,15000);setInterval(refreshOrders,15000);
+</script>
+</body>
+</html>
