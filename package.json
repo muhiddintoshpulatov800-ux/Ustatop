@@ -2,6 +2,6 @@
   "name": "ustatop",
   "version": "1.0.0",
   "private": true,
-  "scripts": { "start": "node srv.js" },
+  "scripts": { "start": "node run.js" },
   "engines": { "node": ">=18" }
 }
